@@ -1,0 +1,91 @@
+.custom-bg{
+    background-color: #c327db!important;
+}
+body{
+    background-color: pink;
+}
+.admin .card{
+    border: 1px solid #c327db;
+}
+
+.admin .card:hover{
+    background-color: rgba(241, 105, 175, 0.4);
+    cursor: pointer;
+}
+.list-group-item.active{
+    background-color: #c327db!important;
+    border-color: #c327db
+}
+.calculated-price{
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 5px
+}
+.actual-price{
+    font-size: 15px;
+    margin: 5px;
+    text-decoration: line-through;
+}
+.discount{
+    font-weight: bold;
+    color:green;
+}
+.product-card:hover{
+    background-color: rgba(241, 105, 175, 0.4);
+    cursor: pointer;
+}
+.calculated-price1{
+    font-size: 40px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 5px
+}
+.actual-price1{
+    font-size: 20px;
+    margin: 5px;
+    text-decoration: line-through;
+}
+
+/*toast*/
+
+#toast{
+    visibility: hidden;
+    max-width: 300px;
+    position: fixed;
+    bottom: 30px;
+    left:50%;
+    background-color:#c327db;
+    padding:10px;
+    color: white;
+    text-align: center;
+    z-index : 1;
+    font-size: 18px;
+}
+#toast.display{
+    visibility: visible;
+    animation: fadeIn 0.25s, fadeOut 0.25s 1.5s;
+}
+@keyframes fadeIn{
+    from{
+        bottom:0;
+        opacity:0;
+    }
+    to{
+        bottom:30px;
+        opacity:1;
+    }
+}
+@keyFrame fadeOut{
+    from{
+         bottom:30px;
+        opacity:1;
+    }
+    to{
+        bottom:0;
+        opacity:0;
+    }
+}
+.text-area{
+    resize: none;
+}
