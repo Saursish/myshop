@@ -5,6 +5,7 @@
 package com.myshop.myshop.dao;
 
 import com.myshop.myshop.entites.Product;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Session;
@@ -29,20 +30,35 @@ public class ProductDao {
        return productId;
     }
     //get all products 
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts(String reg){
+        List<Product> list = new ArrayList<>();
         Session s = factory.openSession();
-        Query q = s.createQuery("from Product");
-        List<Product> list;
-        list = q.list();
+        
+        if(reg == null){
+            Query q = s.createQuery("from Product");
+            list = q.list();
+        }else{
+            Query q = s.createQuery("select p from Product p where p.productName like :keyword or p.productDescription like :keyword");
+            q.setParameter("keyword", "%" + reg + "%");
+            list = q.list();
+        }
         return list;
     }
     //get all products by id
-    public List<Product> getAllProductByCategory(int cId){
+    public List<Product> getAllProductByCategory(int cId, String reg){
         Session s = factory.openSession();
+        List<Product> list = new ArrayList<>();
+        if(reg == null){
         Query q = s.createQuery("from Product as p where p.category.categoryId =: id");
         q.setParameter("id", cId);
-        List<Product> list;
+        
         list = q.list();
+        }else{
+            Query q = s.createQuery("from Product as p where p.category.categoryId =: id and p.productName like :keyword");
+            q.setParameter("id", cId);
+            q.setParameter("keyword", "%" + reg + "%");
+            list = q.list();
+        }
         return list;
     }
     

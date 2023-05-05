@@ -25,14 +25,16 @@
     <body>
         <%@include file="components/navbar.jsp" %>
         <div class="row mx-2 mt-2">
-            <%                String cat = request.getParameter("category");
+            <%             
+                String reg = request.getParameter("search");
+                String cat = request.getParameter("category");
                 List<Product> list = new ArrayList<>();
                 ProductDao productDao = new ProductDao(FactoryProvider.getFactory());
                 if (cat == null || cat.trim().equals("all")) {
-                    list = productDao.getAllProducts();
+                    list = productDao.getAllProducts(reg);
                 } else {
                     int cid = Integer.parseInt(cat.trim());
-                    list = productDao.getAllProductByCategory(cid);
+                    list = productDao.getAllProductByCategory(cid,reg);
                 }
                 CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
                 List<Category> catList = categoryDao.getCategoryList();
@@ -46,7 +48,7 @@
                     <%
                         for (Category category : catList) {%>
 
-                    <a href="index.jsp?category=<%=category.getCategoryId()%>" class="list-group-item list-group-item-action"><%=category.getCategoryTitle()%></a>
+                    <a href="index.jsp?category=<%=category.getCategoryId()%>&search=<%=reg%>" class="list-group-item list-group-item-action"><%=category.getCategoryTitle()%></a>
                     <%
                         }
                     %>
@@ -85,8 +87,9 @@
                             </div>
                         </div>
                     </div>
-                    <%}
-                        }%>
+                    <%
+                        }}
+                    %>
                 </div>
             </div>
         </div>

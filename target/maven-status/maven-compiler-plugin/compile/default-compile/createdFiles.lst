@@ -7,6 +7,7 @@ com\myshop\myshop\servlets\LoginServlet.class
 com\myshop\myshop\servlets\LogoutServlet.class
 com\myshop\myshop\servlets\UserUpdate.class
 com\myshop\myshop\dao\ProductDao.class
+com\myshop\myshop\servlets\VerificationServlet.class
 com\myshop\myshop\servlets\ProductOperationServlet.class
 com\myshop\myshop\servlets\OrderServlet.class
 com\myshop\myshop\helper\FactoryProvider.class
