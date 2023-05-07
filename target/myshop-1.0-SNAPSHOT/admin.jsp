@@ -27,7 +27,7 @@
 
     Map<String, Long> map = Helper.getCount(FactoryProvider.getFactory());
     ProductDao productDao = new ProductDao(FactoryProvider.getFactory());
-    List<Product> productList = productDao.getAllProducts();
+    List<Product> productList = productDao.getAllProducts(null);
     
     UserDao userDao = new UserDao(FactoryProvider.getFactory());
     List<User> userList = userDao.getAllUser();

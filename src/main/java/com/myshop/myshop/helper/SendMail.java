@@ -29,8 +29,6 @@ public class SendMail {
 
         final String username = "user-name";
         final String password = "generated-password";
-
-      
         //session
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
